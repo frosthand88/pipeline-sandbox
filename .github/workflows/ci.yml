@@ -1,7 +1,12 @@
 name: CI
-run-name: >
-  CI - ${{ github.event_name == 'workflow_dispatch' && (inputs.deploy-to-dev && 'with Deployment to Dev' || 'without Deployment') || 'with Deployment to Dev' }} - 
-  ${{ github.event_name == 'workflow_dispatch' && inputs.target-infra || 'abc' }}
+run-name: >-
+  ${{ github.event_name == 'workflow_dispatch' && 
+      (inputs.deploy-to-dev == 'true'
+            && format('CI - with Deployment to Dev - {0}', inputs.target-infra)
+            || format('CI - Without Deployment')
+          ) 
+      || format('CI - {0} with Deployment to Dev - abc', github.event.head_commit.message) 
+  }}
 
 on:
   workflow_dispatch:
