@@ -18,7 +18,7 @@ on:
           - def
   push:
     branches:
-      - master
+      - main
 
 jobs:
   setup-env-var:
