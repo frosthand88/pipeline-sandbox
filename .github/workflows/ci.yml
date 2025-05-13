@@ -1,7 +1,7 @@
 name: CI
 run-name: >-
   ${{ github.event_name == 'workflow_dispatch' && 
-      (inputs.deploy-to-dev == 'true'
+      (inputs.deploy-to-dev
             && format('CI - with Deployment to Dev - {0}', inputs.target-infra)
             || format('CI - Without Deployment')
           ) 
