@@ -1,6 +1,6 @@
 name: CI
-run-name: ${{github.event_name == 'push' && 'CI with Deployment to Dev || 
-            (inputs.deploy-to-dev && 'CI with Deployment to Dev' || 'CI without Deployment') }} - ${{ inputs.target-infra == '' && 'abc' || inputs.target-infra }}
+run-name: ${{ github.event_name == 'push' && 'CI with Deployment to Dev' || 
+  (inputs.deploy-to-dev && 'CI with Deployment to Dev' || 'CI without Deployment') }} - ${{ inputs.target-infra == '' && 'abc' || inputs.target-infra }}
 on:
   workflow_dispatch:
     inputs:
